@@ -8,10 +8,11 @@
 <body>
     <h5>Ingresar Nuevo</h5>
     <form id="Form" method="POST">
-        <input type="text" name="Nombre" id="txtNombre" placeholder="Nombre">
-        <input type="text" name="NIT" placeholder="NIT" id="txtNIT">
-        <input type="date" name="FechaFundacion" placeholder="Fecha Fundacion" id="txtFecha">
-        <input type="text" name="Direccion" placeholder="Direccion" id="txtDireccion">
+        <input type="hidden" id="txtID">
+        <input type="text" required name="Nombre" id="txtNombre" placeholder="Nombre">
+        <input type="text" required name="NIT" placeholder="NIT" id="txtNIT">
+        <input type="date" required name="FechaFundacion" placeholder="Fecha Fundacion" id="txtFecha">
+        <input type="text" required name="Direccion" placeholder="Direccion" id="txtDireccion">
         <input type="submit" value="Agregar">
     </form>
    
