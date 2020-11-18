@@ -27,7 +27,6 @@ function limpiar(){
     document.getElementById("txtDireccion").innerHTML = "";
 }
 
-
 function obtenerDatos(){
 
     let datos = []
@@ -57,9 +56,33 @@ function obtenerDatos(){
             var textoCelda5 = document.createTextNode(empresa.Direccion);
             celda5.appendChild(textoCelda5);
             container.appendChild(celda5);
+            var button = document.createElement("button")
+            button.textContent = "Eliminar"
+            button.id = empresa.Id
+           
+            button.onclick = function(event){
+                eliminarDato(event.target.id);
 
+            }
+            container.appendChild(button)
             tableBody.appendChild(container);
         }
 
     )}
-    
+
+
+function eliminarDato(Id){
+    if(!confirm("¿Seguro que desea eliminar?")){return;}
+    let datos = [] 
+    datos = JSON.parse(sessionStorage.getItem("Datos"));
+    if (datos == null){ return;} 
+
+    datos.forEach( (empresa) => {
+        if (empresa.Id == Id){
+            datos.splice(datos.indexOf(empresa),1);
+        } 
+    })
+    sessionStorage.setItem("Datos",JSON.stringify(datos))
+    obtenerDatos()
+
+}
